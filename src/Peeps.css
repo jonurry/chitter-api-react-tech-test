@@ -1,0 +1,39 @@
+.peeps {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.peep {
+  flex: 1 0 13rem;
+  margin: 1rem;
+  max-width: 20rem;
+  padding: 1rem;
+  text-align: center;
+}
+
+.peep-text {
+  color: #7dbeb8;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.62rem;
+  font-weight: bold;
+}
+
+.peep-name-date {
+  margin: 0.3rem 0;
+}
+
+.peeper {
+  color: #a85163;
+}
+
+.peep-date {
+  color: grey;
+  font-family: cursive;
+}
+
+button {
+  padding: 0.3rem;
+}

@@ -1,4 +1,6 @@
 import React from 'react';
+import Peep from './Peep.js';
+import './Peeps.css';
 
 export default class Peeps extends React.Component {
   constructor(props) {
@@ -21,9 +23,9 @@ export default class Peeps extends React.Component {
   render() {
     const { peeps } = this.state;
     return (
-      <div>
+      <div className="peeps">
         {peeps.map(peep => (
-          <div key={peep.id}>{peep.body}</div>
+          <Peep key={peep.id} peep={peep} />
         ))}
       </div>
     );
