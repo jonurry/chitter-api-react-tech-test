@@ -10,9 +10,7 @@ export default class Peeps extends React.Component {
   }
   async componentDidMount() {
     this._isMounted = true;
-    const peeps = await this.api.get(
-      'https://chitter-backend-api.herokuapp.com/peeps'
-    );
+    const peeps = await this.api.getPeeps();
     if (this._isMounted) {
       this.setState({ peeps: peeps });
     }
