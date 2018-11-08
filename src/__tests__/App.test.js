@@ -1,12 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Peeps from './Peeps';
-import Api from './api.js';
-jest.mock('./api');
+import App from '../App';
 
 it('renders without crashing', () => {
-  const api = new Api();
   const div = document.createElement('div');
-  ReactDOM.render(<Peeps api={api} />, div);
+  ReactDOM.render(<App />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

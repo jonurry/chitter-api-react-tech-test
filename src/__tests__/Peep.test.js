@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import Peep from './peep';
+import Peep from '../peep';
 
 test('Peep', () => {
   const peep = {
@@ -23,7 +23,7 @@ test('Peep', () => {
       ]
     }
   };
-  
+
   const peepUI = shallow(<Peep {...peep} />);
   expect(peepUI.find('.peep-text').text()).toEqual('my first peep :)');
   expect(peepUI.find('.peep-name-date').text()).toEqual(

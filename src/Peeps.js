@@ -1,6 +1,6 @@
 import React from 'react';
 import Peep from './Peep.js';
-import './Peeps.css';
+import './css/Peeps.css';
 
 export default class Peeps extends React.Component {
   constructor(props) {
