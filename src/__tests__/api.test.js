@@ -1,5 +1,8 @@
 import Api from '../api.js';
 
+const HANDLE = 'boggle';
+const PASSWORD = 'pa$$word1!';
+
 describe('API', () => {
   let api;
   beforeEach(() => {
@@ -13,9 +16,17 @@ describe('API', () => {
   });
   describe('Create User', () => {
     it('should create a new user', async () => {
-      await api.createUser('Boggle', 'pa$$word1!');
-      const user = await api.createUser('Boggle', 'pa$$word1!');
+      await api.createUser(HANDLE, PASSWORD);
+      const user = await api.createUser(HANDLE, PASSWORD);
       expect(user).toEqual({ handle: ['has already been taken'] });
+    });
+  });
+  describe('GET Session', () => {
+    it('should create a new session for the user', async () => {
+      const session = await api.getSession(HANDLE, PASSWORD);
+      expect(Object.keys(session)).toEqual(
+        expect.arrayContaining(['session_key', 'user_id'])
+      );
     });
   });
 });
