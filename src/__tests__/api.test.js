@@ -5,8 +5,9 @@ const PASSWORD = 'pa$$word1!';
 
 describe('API', () => {
   let api;
-  beforeEach(() => {
+  beforeAll(() => {
     api = new Api();
+    api.getSession(HANDLE, PASSWORD);
   });
   describe('GET peeps', () => {
     it('should get the 50 most recent peeps', async () => {
@@ -14,7 +15,7 @@ describe('API', () => {
       expect(peeps).toBeInstanceOf(Array);
     });
   });
-  describe('Create User', () => {
+  describe('POST Create User', () => {
     it('should create a new user', async () => {
       await api.createUser(HANDLE, PASSWORD);
       const user = await api.createUser(HANDLE, PASSWORD);
@@ -27,6 +28,25 @@ describe('API', () => {
       expect(Object.keys(session)).toEqual(
         expect.arrayContaining(['session_key', 'user_id'])
       );
+    });
+  });
+  describe('POST Create / DELETE Peep', () => {
+    it('should create and then delete a new peep', async () => {
+      const body = 'peep till you poop';
+      const peep = await api.createPeep(body);
+      // expect(Object.keys(peep)).toEqual(
+      //   expect.arrayContaining([
+      //     'id',
+      //     'body',
+      //     'created_at',
+      //     'updated_at',
+      //     'user',
+      //     'likes'
+      //   ])
+      // );
+      // expect(peep.body).toEqual(body);
+      const deleteResponse = await api.deletePeep(peep.id);
+      expect(deleteResponse.status).toEqual(204);
     });
   });
 });
