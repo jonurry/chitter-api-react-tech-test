@@ -5,9 +5,9 @@ const PASSWORD = 'pa$$word1!';
 
 describe('API', () => {
   let api;
-  beforeAll(() => {
+  beforeAll(async () => {
     api = new Api();
-    api.getSession(HANDLE, PASSWORD);
+    await api.getSession(HANDLE, PASSWORD);
   });
   describe('GET peeps', () => {
     it('should get the 50 most recent peeps', async () => {

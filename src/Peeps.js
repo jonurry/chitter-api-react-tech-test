@@ -6,20 +6,9 @@ export default class Peeps extends React.Component {
   constructor(props) {
     super(props);
     this.api = props.api;
-    this.state = { peeps: [] };
-  }
-  async componentDidMount() {
-    this._isMounted = true;
-    const peeps = await this.api.getPeeps();
-    if (this._isMounted) {
-      this.setState({ peeps: peeps });
-    }
-  }
-  componentWillUnmount() {
-    this._isMounted = false;
   }
   render() {
-    const { peeps } = this.state;
+    const { peeps } = this.props;
     return (
       <div className="peeps">
         {peeps.map(peep => (

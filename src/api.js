@@ -18,6 +18,7 @@ export default class Api {
   }
   async createPeep(body) {
     let data = { peep: { user_id: userId, body: body } };
+    await this.getSession();
     let response = await fetch(PEEPS_URL, {
       method: 'POST',
       headers: {
@@ -26,7 +27,8 @@ export default class Api {
       },
       body: JSON.stringify(data)
     });
-    return await response.json();
+    const peep = await response.json();
+    return peep;
   }
   async deletePeep(id) {
     let response = await fetch(`${PEEPS_URL}/${id}`, {
@@ -41,7 +43,7 @@ export default class Api {
     let response = await fetch(PEEPS_URL);
     return await response.json();
   }
-  async getSession(handle, password) {
+  async getSession(handle = 'boggle', password = 'pa$$word1!') {
     let data = { session: { handle: handle, password: password } };
     let response = await fetch(SESSION_URL, {
       method: 'POST',
