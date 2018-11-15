@@ -12,7 +12,11 @@ export default class Peeps extends React.Component {
     return (
       <div className="peeps">
         {peeps.map(peep => (
-          <Peep key={peep.id} peep={peep} />
+          <Peep
+            key={peep.id}
+            peep={peep}
+            onDeletePeep={this.props.onDeletePeep}
+          />
         ))}
       </div>
     );

@@ -4,6 +4,10 @@ export default class Peeps extends React.Component {
   constructor(props) {
     super(props);
     this.peep = props.peep;
+    this.onDelete = this.onDelete.bind(this);
+  }
+  onDelete() {
+    this.props.onDeletePeep(this.peep);
   }
   render() {
     return (
@@ -16,6 +20,11 @@ export default class Peeps extends React.Component {
           </span>
         </div>
         <button>Likes: {this.peep.likes.length}</button>
+        {this.peep.user.id === 547 ? (
+          <button onClick={this.onDelete}>Delete</button>
+        ) : (
+          ''
+        )}
       </div>
     );
   }
