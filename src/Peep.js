@@ -12,14 +12,18 @@ export default class Peeps extends React.Component {
   render() {
     return (
       <div className="peep">
-        <div className="peep-text">{this.peep.body}</div>
-        <div className="peep-name-date">
+        <div className="peep-text" data-testid="peep-text">
+          {this.peep.body}
+        </div>
+        <div className="peep-name-date" data-testid="peep-name-date">
           <span className="peeper">{this.peep.user.handle}</span> on{' '}
           <span className="peep-date">
             {formatDate(new Date(this.peep.created_at))}
           </span>
         </div>
-        <button>Likes: {this.peep.likes.length}</button>
+        <button data-testid="like-button">
+          Likes: {this.peep.likes.length}
+        </button>
         {this.peep.user.id === 547 ? (
           <button onClick={this.onDelete}>Delete</button>
         ) : (

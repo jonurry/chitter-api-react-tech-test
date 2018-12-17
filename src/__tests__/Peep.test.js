@@ -1,9 +1,9 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import { render } from 'react-testing-library';
 import Peep from '../peep';
 
 test('Peep', () => {
-  const peep = {
+  const props = {
     peep: {
       id: 3,
       body: 'my first peep :)',
@@ -24,10 +24,11 @@ test('Peep', () => {
     }
   };
 
-  const peepUI = shallow(<Peep {...peep} />);
-  expect(peepUI.find('.peep-text').text()).toEqual('my first peep :)');
-  expect(peepUI.find('.peep-name-date').text()).toEqual(
-    'kay on 23-06-2018 13:21'
-  );
-  expect(peepUI.find('button').text()).toEqual('Likes: 1');
+  const { getByTestId } = render(<Peep {...props} />);
+  const peepDiv = getByTestId('peep-text');
+  const peepNameDate = getByTestId('peep-name-date');
+  const likeButton = getByTestId('like-button');
+  expect(peepDiv).toHaveTextContent('my first peep :)');
+  expect(peepNameDate).toHaveTextContent('kay on 23-06-2018 13:21');
+  expect(likeButton).toHaveTextContent('Likes: 1');
 });
