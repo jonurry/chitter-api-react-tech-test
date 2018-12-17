@@ -1,4 +1,5 @@
 import React from 'react';
+import DateFormatter from './dateFormatter.js';
 
 export default class Peeps extends React.Component {
   constructor(props) {
@@ -10,6 +11,10 @@ export default class Peeps extends React.Component {
     this.props.onDeletePeep(this.peep);
   }
   render() {
+    const dateFormatter = new DateFormatter();
+    const { created_at } = this.props.peep;
+    const peepDate = dateFormatter.formatDate(new Date(created_at));
+    console.log(peepDate);
     return (
       <div className="peep">
         <div className="peep-text" data-testid="peep-text">
@@ -17,9 +22,7 @@ export default class Peeps extends React.Component {
         </div>
         <div className="peep-name-date" data-testid="peep-name-date">
           <span className="peeper">{this.peep.user.handle}</span> on{' '}
-          <span className="peep-date">
-            {formatDate(new Date(this.peep.created_at))}
-          </span>
+          <span className="peep-date">{peepDate}</span>
         </div>
         <button data-testid="like-button">
           Likes: {this.peep.likes.length}
@@ -33,11 +36,3 @@ export default class Peeps extends React.Component {
     );
   }
 }
-const formatDate = date => {
-  return `${date.getDate()}-${String(date.getMonth() + 1).padStart(
-    2,
-    '0'
-  )}-${date.getFullYear()} ${String(date.getHours()).padStart(2, '0')}:${String(
-    date.getMinutes()
-  ).padStart(2, '0')}`;
-};
