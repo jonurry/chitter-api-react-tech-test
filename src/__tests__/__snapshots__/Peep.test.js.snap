@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Peep Matches Snapshot 1`] = `
+<div>
+  <div
+    class="peep"
+  >
+    <div
+      class="peep-text"
+      data-testid="peep-text"
+    >
+      my first peep :)
+    </div>
+    <div
+      class="peep-name-date"
+      data-testid="peep-name-date"
+    >
+      <span
+        class="peeper"
+      >
+        kay
+      </span>
+       on
+       
+      <span
+        class="peep-date"
+      >
+        23-06-2018 13:21
+      </span>
+    </div>
+    <button
+      data-testid="like-button"
+    >
+      Likes: 
+      1
+    </button>
+    
+  </div>
+</div>
+`;
