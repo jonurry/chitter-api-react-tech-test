@@ -24,7 +24,8 @@
   ],
   "devDependencies": {
     "enzyme": "^3.7.0",
-    "enzyme-adapter-react-16": "^1.7.0"
+    "enzyme-adapter-react-16": "^1.7.0",
+    "react-testing-library": "^5.4.0"
   },
   "jest": {
     "collectCoverageFrom": [
