@@ -1,6 +1,45 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Peep Matches Snapshot 1`] = `
+exports[`Peep Another user created peep Peep Matches Snapshot 1`] = `
+<div>
+  <div
+    class="peep"
+  >
+    <div
+      class="peep-text"
+      data-testid="peep-text"
+    >
+      another peep
+    </div>
+    <div
+      class="peep-name-date"
+      data-testid="peep-name-date"
+    >
+      <span
+        class="peeper"
+      >
+        jon
+      </span>
+       on
+       
+      <span
+        class="peep-date"
+      >
+        1-07-2018 09:06
+      </span>
+    </div>
+    <button
+      data-testid="like-button"
+    >
+      Likes: 
+      2
+    </button>
+    
+  </div>
+</div>
+`;
+
+exports[`Peep Current user created peep Peep Matches Snapshot 1`] = `
 <div>
   <div
     class="peep"

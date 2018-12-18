@@ -16,10 +16,10 @@ class App extends Component {
   }
   async componentDidMount() {
     this._isMounted = true;
-    await this.api.getSession(HANDLE, PASSWORD);
+    let user = await this.api.getSession(HANDLE, PASSWORD);
     let peeps = await this.api.getPeeps();
     if (this._isMounted) {
-      this.setState({ peeps: peeps });
+      this.setState({ peeps: peeps, currentUser: user });
     }
   }
   componentWillUnmount() {
@@ -53,6 +53,7 @@ class App extends Component {
           api={this.api}
           peeps={this.state.peeps}
           onDeletePeep={this.handleDeletePeep}
+          currentUser={this.state.currentUser}
         />
       </div>
     );

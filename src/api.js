@@ -16,6 +16,7 @@ export default class Api {
     });
     return await response.json();
   }
+
   async createPeep(body) {
     let data = { peep: { user_id: userId, body: body } };
     await this.getSession();
@@ -30,6 +31,7 @@ export default class Api {
     const peep = await response.json();
     return peep;
   }
+
   async deletePeep(id) {
     let response = await fetch(`${PEEPS_URL}/${id}`, {
       method: 'DELETE',
@@ -39,10 +41,12 @@ export default class Api {
     });
     return response;
   }
+
   async getPeeps() {
     let response = await fetch(PEEPS_URL);
     return await response.json();
   }
+
   async getSession(handle = 'boggle', password = 'pa$$word1!') {
     let data = { session: { handle: handle, password: password } };
     let response = await fetch(SESSION_URL, {

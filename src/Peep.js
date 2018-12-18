@@ -26,11 +26,11 @@ export default class Peep extends React.Component {
         <button data-testid="like-button">
           Likes: {this.peep.likes.length}
         </button>
-        {/* {this.peep.user.id === 547 ? ( */}
-        <button onClick={this.onDelete}>Delete</button>
-        {/* ) : ( */}
-        {/* '' */}
-        {/* )} */}
+        {this.peep.user.id === this.props.currentUser.user_id ? (
+          <button onClick={this.onDelete}>Delete</button>
+        ) : (
+          ''
+        )}
       </div>
     );
   }

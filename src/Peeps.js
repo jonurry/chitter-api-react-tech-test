@@ -16,6 +16,7 @@ export default class Peeps extends React.Component {
             key={peep.id}
             peep={peep}
             onDeletePeep={this.props.onDeletePeep}
+            currentUser={this.props.currentUser}
           />
         ))}
       </div>
