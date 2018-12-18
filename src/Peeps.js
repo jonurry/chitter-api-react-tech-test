@@ -3,10 +3,6 @@ import Peep from './Peep.js';
 import './css/Peeps.css';
 
 export default class Peeps extends React.Component {
-  constructor(props) {
-    super(props);
-    this.api = props.api;
-  }
   render() {
     const { peeps } = this.props;
     return (

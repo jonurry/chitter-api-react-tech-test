@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Peeps> Matches snapshot 1`] = `
+<div>
+  <div
+    class="peeps"
+  >
+    <div
+      class="peep"
+    >
+      <div
+        class="peep-text"
+        data-testid="peep-text"
+      >
+        my first peep :)
+      </div>
+      <div
+        class="peep-name-date"
+        data-testid="peep-name-date"
+      >
+        <span
+          class="peeper"
+        >
+          kay
+        </span>
+         on
+         
+        <span
+          class="peep-date"
+        >
+          23-06-2018 14:21
+        </span>
+      </div>
+      <button
+        data-testid="like-button"
+      >
+        Likes: 
+        1
+      </button>
+      <button>
+        Delete
+      </button>
+    </div>
+    <div
+      class="peep"
+    >
+      <div
+        class="peep-text"
+        data-testid="peep-text"
+      >
+        another peep
+      </div>
+      <div
+        class="peep-name-date"
+        data-testid="peep-name-date"
+      >
+        <span
+          class="peeper"
+        >
+          jon
+        </span>
+         on
+         
+        <span
+          class="peep-date"
+        >
+          1-07-2018 09:06
+        </span>
+      </div>
+      <button
+        data-testid="like-button"
+      >
+        Likes: 
+        2
+      </button>
+      
+    </div>
+    <div
+      class="peep"
+    >
+      <div
+        class="peep-text"
+        data-testid="peep-text"
+      >
+        and another peep
+      </div>
+      <div
+        class="peep-name-date"
+        data-testid="peep-name-date"
+      >
+        <span
+          class="peeper"
+        >
+          kay
+        </span>
+         on
+         
+        <span
+          class="peep-date"
+        >
+          2-07-2018 23:56
+        </span>
+      </div>
+      <button
+        data-testid="like-button"
+      >
+        Likes: 
+        2
+      </button>
+      <button>
+        Delete
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -50,7 +50,6 @@ class App extends Component {
         </header>
         <CreatePeepForm api={this.api} onNewPeep={this.handleNewPeep} />
         <Peeps
-          api={this.api}
           peeps={this.state.peeps}
           onDeletePeep={this.handleDeletePeep}
           currentUser={this.state.currentUser}
