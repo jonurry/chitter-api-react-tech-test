@@ -23,6 +23,7 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@types/jest": "^23.3.10",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.7.0",
     "jest-dom": "^3.0.0",
