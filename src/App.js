@@ -25,12 +25,12 @@ class App extends Component {
   componentWillUnmount() {
     this._isMounted = false;
   }
-  async handleDeletePeep(peepToDelete) {
+  async handleDeletePeep(peepId) {
     try {
-      await this.api.deletePeep(peepToDelete.id);
+      await this.api.deletePeep(peepId);
       let newState = this.state.peeps;
       newState = newState.filter(peep => {
-        return peep.id !== peepToDelete.id;
+        return peep.id !== peepId;
       });
       this.setState({ peeps: newState });
     } catch (error) {

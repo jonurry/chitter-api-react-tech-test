@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 import Peep from '../peep';
 
 const props = {
@@ -20,7 +20,8 @@ const props = {
         }
       }
     ]
-  }
+  },
+  onDeletePeep: jest.fn()
 };
 
 test('Peep Renders', () => {
@@ -36,4 +37,12 @@ test('Peep Renders', () => {
 test('Peep Matches Snapshot', () => {
   const { container } = render(<Peep {...props} />);
   expect(container).toMatchSnapshot();
+});
+
+test('Delete a peep', () => {
+  const { getByText } = render(<Peep {...props} />);
+  const deleteButton = getByText(/delete/i);
+  fireEvent.click(deleteButton);
+  expect(props.onDeletePeep.mock.calls.length).toEqual(1);
+  expect(props.onDeletePeep.mock.calls[0][0]).toEqual(props.peep.id);
 });

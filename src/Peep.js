@@ -1,20 +1,19 @@
 import React from 'react';
 import DateFormatter from './dateFormatter.js';
 
-export default class Peeps extends React.Component {
+export default class Peep extends React.Component {
   constructor(props) {
     super(props);
     this.peep = props.peep;
     this.onDelete = this.onDelete.bind(this);
   }
   onDelete() {
-    this.props.onDeletePeep(this.peep);
+    this.props.onDeletePeep(this.peep.id);
   }
   render() {
     const dateFormatter = new DateFormatter();
     const { created_at } = this.props.peep;
     const peepDate = dateFormatter.formatDate(new Date(created_at));
-    console.log(peepDate);
     return (
       <div className="peep">
         <div className="peep-text" data-testid="peep-text">
@@ -27,11 +26,11 @@ export default class Peeps extends React.Component {
         <button data-testid="like-button">
           Likes: {this.peep.likes.length}
         </button>
-        {this.peep.user.id === 547 ? (
-          <button onClick={this.onDelete}>Delete</button>
-        ) : (
-          ''
-        )}
+        {/* {this.peep.user.id === 547 ? ( */}
+        <button onClick={this.onDelete}>Delete</button>
+        {/* ) : ( */}
+        {/* '' */}
+        {/* )} */}
       </div>
     );
   }
