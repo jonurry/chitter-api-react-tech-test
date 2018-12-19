@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, fireEvent } from 'react-testing-library';
-import Peep from '../peep';
+import Peep from '../Peep';
 
-describe('Peep', () => {
+describe('<Peep>', () => {
   describe('Current user created peep', () => {
     const props = {
       peep: {
@@ -50,8 +50,8 @@ describe('Peep', () => {
       const { getByText } = render(<Peep {...props} />);
       const deleteButton = getByText(/delete/i);
       fireEvent.click(deleteButton);
-      expect(props.onDeletePeep.mock.calls.length).toEqual(1);
-      expect(props.onDeletePeep.mock.calls[0][0]).toEqual(props.peep.id);
+      expect(props.onDeletePeep).toHaveBeenCalledTimes(1);
+      expect(props.onDeletePeep).toHaveBeenCalledWith(props.peep.id);
     });
   });
 
