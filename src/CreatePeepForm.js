@@ -3,22 +3,15 @@ import React from 'react';
 export default class CreatePeepForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: '' };
-    this.api = props.api;
-    this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleChange(event) {
-    this.setState({ value: event.target.value });
   }
 
   async handleSubmit(event) {
     event.preventDefault();
-    const peepText = this.state.value;
-    const peep = await this.api.createPeep(peepText);
-    this.props.onNewPeep(peep);
-    this.setState({ value: '' });
+    const { peep } = event.target.elements;
+    const newPeep = await this.props.createPeep(peep.value);
+    this.props.onNewPeep(newPeep);
+    peep.value = '';
   }
 
   render() {
@@ -26,13 +19,9 @@ export default class CreatePeepForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <label>
           Peep:
-          <input
-            type="text"
-            value={this.state.value}
-            onChange={this.handleChange}
-          />
+          <input name="peep" type="text" />
         </label>
-        <input type="submit" value="Submit" />
+        <button type="submit">Submit</button>
       </form>
     );
   }

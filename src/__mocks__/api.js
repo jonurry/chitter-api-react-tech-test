@@ -1,4 +1,25 @@
 export default class Api {
+  async createPeep(body) {
+    return {
+      id: 7,
+      body: body,
+      created_at: '2018-10-23T13:21:23.317',
+      updated_at: '2018-10-23T13:21:23.317',
+      user: {
+        id: 1,
+        handle: 'kay'
+      },
+      likes: [
+        {
+          user: {
+            id: 2,
+            handle: 'jon'
+          }
+        }
+      ]
+    };
+  }
+
   async getPeeps(url) {
     return [
       {
@@ -69,6 +90,7 @@ export default class Api {
       }
     ];
   }
+
   async getSession(handle, session) {
     return {
       session_key: '_2a_10_VhcqQmvbjz_4EJHs1NXi0_',
