@@ -14,6 +14,7 @@ class App extends Component {
     this.handleDeletePeep = this.handleDeletePeep.bind(this);
     this.handleNewPeep = this.handleNewPeep.bind(this);
   }
+
   async componentDidMount() {
     this._isMounted = true;
     let user = await this.api.getSession(HANDLE, PASSWORD);
@@ -22,9 +23,11 @@ class App extends Component {
       this.setState({ peeps: peeps, currentUser: user });
     }
   }
+
   componentWillUnmount() {
     this._isMounted = false;
   }
+
   async handleDeletePeep(peepId) {
     try {
       await this.api.deletePeep(peepId);
@@ -37,18 +40,23 @@ class App extends Component {
       alert('Cannot delete peep');
     }
   }
+
   handleNewPeep(peep) {
     let newState = this.state.peeps;
     newState.unshift(peep);
     this.setState({ peeps: newState });
   }
+
   render() {
     return (
       <div className="App">
         <header className="App-header">
           <h1>Chitter Tech Test</h1>
         </header>
-        <CreatePeepForm api={this.api} onNewPeep={this.handleNewPeep} />
+        <CreatePeepForm
+          createPeep={this.api.createPeep}
+          onNewPeep={this.handleNewPeep}
+        />
         <Peeps
           peeps={this.state.peeps}
           onDeletePeep={this.handleDeletePeep}

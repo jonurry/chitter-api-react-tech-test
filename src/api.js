@@ -19,7 +19,6 @@ export default class Api {
 
   async createPeep(body) {
     let data = { peep: { user_id: userId, body: body } };
-    await this.getSession();
     let response = await fetch(PEEPS_URL, {
       method: 'POST',
       headers: {
