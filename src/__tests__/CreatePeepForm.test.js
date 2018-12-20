@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent, wait } from 'react-testing-library';
+import { render, fireEvent } from 'react-testing-library';
 import CreatePeepForm from '../CreatePeepForm';
 
 const props = {
@@ -32,8 +32,10 @@ describe('<CreatePeepForm>', () => {
     const peepText = 'Peep no. 7';
     getByLabelText(/peep:/i).value = peepText;
     const submitButton = getByText(/submit/i);
-    await wait(() => fireEvent.click(submitButton));
+    await fireEvent.click(submitButton);
     expect(props.onNewPeep).toHaveBeenCalledTimes(1);
     expect(props.createPeep).toHaveBeenCalledTimes(1);
+    expect(props.onNewPeep).toHaveBeenCalledWith(props.createPeep(peepText));
+    expect(props.createPeep).toHaveBeenCalledWith(peepText);
   });
 });
