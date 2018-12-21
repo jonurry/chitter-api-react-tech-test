@@ -20,8 +20,12 @@ export default class Api {
     };
   }
 
+  async deletePeep(id) {
+    return true;
+  }
+
   async getPeeps(url) {
-    return [
+    return await [
       {
         id: 3,
         body: 'my first peep :)',
