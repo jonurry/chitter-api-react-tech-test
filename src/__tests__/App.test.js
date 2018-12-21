@@ -27,4 +27,15 @@ describe('<App>', () => {
     await fireEvent.click(deleteButton);
     expect(api.deletePeep).toHaveBeenCalledWith(peep.id);
   });
+
+  it('Should create a Peep', async () => {
+    const api = new Api();
+    api.createPeep = jest.fn();
+    const { getByLabelText, getByText } = await render(<App api={api} />);
+    const createButton = await waitForElement(() => getByText(/submit/i));
+    const peepText = 'Peep no. 007';
+    getByLabelText(/peep:/i).value = peepText;
+    await fireEvent.click(createButton);
+    expect(api.createPeep).toHaveBeenCalledWith(peepText);
+  });
 });
