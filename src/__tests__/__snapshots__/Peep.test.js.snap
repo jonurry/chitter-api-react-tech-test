@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Peep> Another user created peep Peep Matches Snapshot 1`] = `
+exports[`<Peep> Another user created peep Peep matches snapshot without delete button 1`] = `
 <div>
   <div
     class="peep"
@@ -39,7 +39,7 @@ exports[`<Peep> Another user created peep Peep Matches Snapshot 1`] = `
 </div>
 `;
 
-exports[`<Peep> Current user created peep Peep Matches Snapshot 1`] = `
+exports[`<Peep> Current user created peep Peep matches snapshot with delete button 1`] = `
 <div>
   <div
     class="peep"

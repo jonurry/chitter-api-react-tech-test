@@ -30,7 +30,7 @@ describe('<Peep>', () => {
       }
     };
 
-    test('Peep Renders', () => {
+    test('Peep renders with delete button', () => {
       const { getByTestId, getByText } = render(<Peep {...props} />);
       const peepDiv = getByTestId('peep-text');
       const peepNameDate = getByTestId('peep-name-date');
@@ -41,7 +41,7 @@ describe('<Peep>', () => {
       expect(getByText(/delete/i)).not.toBeNull();
     });
 
-    test('Peep Matches Snapshot', () => {
+    test('Peep matches snapshot with delete button', () => {
       const { container } = render(<Peep {...props} />);
       expect(container).toMatchSnapshot();
     });
@@ -88,7 +88,7 @@ describe('<Peep>', () => {
       }
     };
 
-    test('Peep Renders', () => {
+    test('Peep renders without delete button', () => {
       const { getByTestId, queryByText } = render(<Peep {...props2} />);
       const peepDiv = getByTestId('peep-text');
       const peepNameDate = getByTestId('peep-name-date');
@@ -99,7 +99,7 @@ describe('<Peep>', () => {
       expect(queryByText(/delete/i)).toBeNull();
     });
 
-    test('Peep Matches Snapshot', () => {
+    test('Peep matches snapshot without delete button', () => {
       const { container } = render(<Peep {...props2} />);
       expect(container).toMatchSnapshot();
     });
