@@ -7,14 +7,18 @@ export default class Peeps extends React.Component {
     const { peeps, onDeletePeep, currentUser } = this.props;
     return (
       <div className="peeps">
-        {peeps.map(peep => (
-          <Peep
-            key={peep.id}
-            peep={peep}
-            onDeletePeep={onDeletePeep}
-            currentUser={currentUser}
-          />
-        ))}
+        {peeps.map(peep =>
+          typeof peep !== 'undefined' ? (
+            <Peep
+              key={peep.id}
+              peep={peep}
+              onDeletePeep={onDeletePeep}
+              currentUser={currentUser}
+            />
+          ) : (
+            ''
+          )
+        )}
       </div>
     );
   }
