@@ -24,6 +24,7 @@ describe('<Peep>', () => {
         ]
       },
       onDeletePeep: jest.fn(),
+      onLikePeep: jest.fn(),
       currentUser: {
         session_key: '_2a_10_VhcqQmvbjz_4EJHs1NXi0_',
         user_id: 1
@@ -52,6 +53,15 @@ describe('<Peep>', () => {
       fireEvent.click(deleteButton);
       expect(props.onDeletePeep).toHaveBeenCalledTimes(1);
       expect(props.onDeletePeep).toHaveBeenCalledWith(props.peep.id);
+    });
+
+    test('Like a peep', () => {
+      const { getByTestId } = render(<Peep {...props} />);
+      const likeButton = getByTestId('like-button');
+      expect(likeButton).toHaveTextContent('Likes: 1');
+      fireEvent.click(likeButton);
+      expect(props.onLikePeep).toHaveBeenCalledTimes(1);
+      expect(props.onLikePeep).toHaveBeenCalledWith(props.peep.id);
     });
   });
 
