@@ -101,4 +101,13 @@ export default class Api {
       user_id: 1
     };
   }
+
+  async likePeep(id) {
+    return {
+      user: {
+        id: 2,
+        handle: 'jon'
+      }
+    };
+  }
 }

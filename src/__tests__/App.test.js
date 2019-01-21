@@ -38,4 +38,14 @@ describe('<App>', () => {
     await fireEvent.click(createButton);
     expect(api.createPeep).toHaveBeenCalledWith(peepText);
   });
+
+  it('Should like a Peep', async () => {
+    const api = new Api();
+    api.likePeep = jest.fn();
+    let peep = (await api.getPeeps())[0];
+    const { getByTestId } = await render(<App api={api} />);
+    const likeButton = await waitForElement(() => getByTestId('like-button'));
+    await fireEvent.click(likeButton);
+    expect(api.likePeep).toHaveBeenCalledWith(peep.id);
+  });
 });

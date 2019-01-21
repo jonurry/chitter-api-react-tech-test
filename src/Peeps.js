@@ -4,7 +4,7 @@ import './css/Peeps.css';
 
 export default class Peeps extends React.Component {
   render() {
-    const { peeps, onDeletePeep, currentUser } = this.props;
+    const { peeps, onDeletePeep, onLikePeep, currentUser } = this.props;
     return (
       <div className="peeps">
         {peeps.map(peep =>
@@ -13,6 +13,7 @@ export default class Peeps extends React.Component {
               key={peep.id}
               peep={peep}
               onDeletePeep={onDeletePeep}
+              onLikePeep={onLikePeep}
               currentUser={currentUser}
             />
           ) : (

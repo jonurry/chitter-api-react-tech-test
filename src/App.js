@@ -12,6 +12,7 @@ class App extends Component {
     this.api = props.api;
     this.state = { peeps: [] };
     this.handleDeletePeep = this.handleDeletePeep.bind(this);
+    this.handleLikePeep = this.handleLikePeep.bind(this);
     this.handleNewPeep = this.handleNewPeep.bind(this);
   }
 
@@ -41,6 +42,28 @@ class App extends Component {
     }
   }
 
+  async handleLikePeep(peepId) {
+    try {
+      let response = await this.api.likePeep(peepId);
+      if (typeof response.user !== 'undefined') {
+        let newState = this.state.peeps;
+        let peepIndex = newState.findIndex(peep => {
+          return peep.id === peepId;
+        });
+        if (
+          newState[peepIndex].likes.some(like => {
+            return like.user.id !== response.user.id;
+          })
+        ) {
+          newState[peepIndex].likes.push(response);
+        }
+        this.setState({ peeps: newState });
+      }
+    } catch (error) {
+      alert('Cannot like peep');
+    }
+  }
+
   handleNewPeep(peep) {
     let newState = this.state.peeps;
     newState.unshift(peep);
@@ -60,6 +83,7 @@ class App extends Component {
         <Peeps
           peeps={this.state.peeps}
           onDeletePeep={this.handleDeletePeep}
+          onLikePeep={this.handleLikePeep}
           currentUser={this.state.currentUser}
         />
       </div>
