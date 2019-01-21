@@ -14,7 +14,13 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "env": {
+      "cypress/globals": true
+    },
+    "extends": "react-app",
+    "plugins": [
+      "eslint-plugin-cypress"
+    ]
   },
   "browserslist": [
     ">0.2%",
@@ -24,6 +30,8 @@
   ],
   "devDependencies": {
     "@types/jest": "^23.3.10",
+    "cypress": "^3.1.4",
+    "eslint-plugin-cypress": "^2.2.0",
     "jest-dom": "^3.0.0",
     "react-testing-library": "^5.4.0"
   },
